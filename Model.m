@@ -9,5 +9,17 @@
 #import "Model.h"
 
 @implementation Model
+
 @synthesize nx, ny;
+@synthesize LGEO;
+
+-(void) initArray
+{
+    LGEO = [[NSMutableArray alloc] initWithCapacity:nx*ny];
+    for (int i = 0; i < nx*ny; i++) {
+        int value = 0;
+        [LGEO addObject:@(value)];
+    }
+}
+
 @end

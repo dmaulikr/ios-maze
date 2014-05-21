@@ -38,13 +38,6 @@
     float dx = width/nx;
     float dy = height/ny;
 
-    LGEO = [[NSMutableArray alloc] initWithCapacity:16];
-    for (int i = 0; i < nx*ny; i++) {
-        int value = 0;
-        if (i>4 && i<10) value = 1;
-        [LGEO addObject:@(value)];
-    }
-
     for (int i = 0; i < nx; i++) {
         for (int j = 0; j < ny; j++) {
             int N = i + j*nx;

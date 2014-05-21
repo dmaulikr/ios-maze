@@ -10,4 +10,6 @@
 
 @interface Model : NSObject
 @property int nx, ny;
+@property NSMutableArray* LGEO;
+-(void) initArray;
 @end

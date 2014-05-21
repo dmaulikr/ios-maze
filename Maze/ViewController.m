@@ -27,14 +27,44 @@
     
     // model
     model = [[Model alloc] init];
-    model.nx = 20;
-    model.ny = 20;
+    model.nx = 10;
+    model.ny = 10;
+    [model initArray];
     
     // view
     blackBox.nx = model.nx;
     blackBox.ny = model.ny;
+    blackBox.LGEO = model.LGEO;
 
     [self.view addSubview:blackBox];
+}
+
+- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    for (UITouch* t in touches) {
+        CGPoint touchLocation;
+        touchLocation = [t locationInView:blackBox];
+        float x = touchLocation.x;
+        float y = touchLocation.y;
+
+        float width = blackBox.frame.size.width;
+        float height = blackBox.frame.size.height;
+        
+        float dx = width / model.nx;
+        float dy = height / model.ny;
+        
+        int xIndex = x/dx;
+        int yIndex = y/dy;
+        NSLog(@"touched %d %d", xIndex, yIndex);
+        int N = xIndex + model.nx*yIndex;
+        int val = [[model.LGEO objectAtIndex:N] intValue];
+        [model.LGEO removeObjectAtIndex:N];
+        [model.LGEO insertObject:@(1-val) atIndex:N];
+
+        [blackBox.LGEO removeObjectAtIndex:N];
+        [blackBox.LGEO insertObject:@(1-val) atIndex:N];
+        [blackBox setNeedsDisplay];
+    }
 }
 
 - (void)didReceiveMemoryWarning
