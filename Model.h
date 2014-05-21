@@ -9,7 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @interface Model : NSObject
+
+// LGEO array
 @property int nx, ny;
 @property NSMutableArray* LGEO;
--(void) initArray;
+
+// ball
+@property float x, y, R, ux, uy, ax, ay;
+
 @end

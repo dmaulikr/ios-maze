@@ -9,15 +9,18 @@
 #import "ViewController.h"
 #import "Model.h"
 #import "DrawMaze.h"
+#import "Ball.h"
 
 @interface ViewController ()
 @property (strong, nonatomic) Model* model;
+@property (strong, nonatomic) Ball* ball;
 @property (strong, nonatomic) IBOutlet DrawMaze *blackBox;
 @end
 
 @implementation ViewController
 
 @synthesize model;
+@synthesize ball;
 @synthesize blackBox;
 
 - (void)viewDidLoad
@@ -27,9 +30,16 @@
     
     // model
     model = [[Model alloc] init];
-    model.nx = 10;
-    model.ny = 10;
-    [model initArray];
+    
+    float width = blackBox.frame.size.width;
+    float height = blackBox.frame.size.height;
+    float dx = width / model.nx;
+    float dy = height / model.ny;
+    
+    // initialize Ball object
+    CGRect ballRect = CGRectMake(100, 100, dx , dy);
+    ball = [[Ball alloc] initWithFrame:ballRect];
+    [ball setBackgroundColor:[UIColor clearColor]];
     
     // view
     blackBox.nx = model.nx;
@@ -37,6 +47,7 @@
     blackBox.LGEO = model.LGEO;
 
     [self.view addSubview:blackBox];
+    [blackBox addSubview:ball];
 }
 
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -53,11 +64,13 @@
         float dx = width / model.nx;
         float dy = height / model.ny;
         
+        // find out array location where finger touches the screen
         int xIndex = x/dx;
         int yIndex = y/dy;
-        NSLog(@"touched %d %d", xIndex, yIndex);
         int N = xIndex + model.nx*yIndex;
         int val = [[model.LGEO objectAtIndex:N] intValue];
+        
+        // update entry at that location in the model
         [model.LGEO removeObjectAtIndex:N];
         [model.LGEO insertObject:@(1-val) atIndex:N];
 

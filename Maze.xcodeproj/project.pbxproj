@@ -24,6 +24,7 @@
 		1ED17298192C7A2F0014DB5B /* DrawMaze.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED17297192C7A2F0014DB5B /* DrawMaze.m */; };
 		1ED1729A192CC6690014DB5B /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ED17299192CC6690014DB5B /* background.png */; };
 		1ED1729D192CEA4C0014DB5B /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED1729C192CEA4C0014DB5B /* Model.m */; };
+		1ED172A0192CF3000014DB5B /* Ball.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED1729F192CF3000014DB5B /* Ball.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,8 @@
 		1ED17299192CC6690014DB5B /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		1ED1729B192CEA4C0014DB5B /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Model.h; path = ../Model.h; sourceTree = "<group>"; };
 		1ED1729C192CEA4C0014DB5B /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Model.m; path = ../Model.m; sourceTree = "<group>"; };
+		1ED1729E192CF3000014DB5B /* Ball.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ball.h; sourceTree = "<group>"; };
+		1ED1729F192CF3000014DB5B /* Ball.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ball.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +128,8 @@
 				1ED17270192C75060014DB5B /* Main.storyboard */,
 				1ED1729B192CEA4C0014DB5B /* Model.h */,
 				1ED1729C192CEA4C0014DB5B /* Model.m */,
+				1ED1729E192CF3000014DB5B /* Ball.h */,
+				1ED1729F192CF3000014DB5B /* Ball.m */,
 				1ED17296192C7A2F0014DB5B /* DrawMaze.h */,
 				1ED17297192C7A2F0014DB5B /* DrawMaze.m */,
 				1ED17299192CC6690014DB5B /* background.png */,
@@ -265,6 +270,7 @@
 			files = (
 				1ED17275192C75060014DB5B /* ViewController.m in Sources */,
 				1ED1726F192C75060014DB5B /* AppDelegate.m in Sources */,
+				1ED172A0192CF3000014DB5B /* Ball.m in Sources */,
 				1ED1726B192C75060014DB5B /* main.m in Sources */,
 				1ED17298192C7A2F0014DB5B /* DrawMaze.m in Sources */,
 				1ED1729D192CEA4C0014DB5B /* Model.m in Sources */,

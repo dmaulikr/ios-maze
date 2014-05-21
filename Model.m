@@ -12,14 +12,23 @@
 
 @synthesize nx, ny;
 @synthesize LGEO;
+@synthesize x,y,R,ux,uy,ax,ay;
 
--(void) initArray
+// override superclass implementation of init
+-(id) init
 {
-    LGEO = [[NSMutableArray alloc] initWithCapacity:nx*ny];
-    for (int i = 0; i < nx*ny; i++) {
-        int value = 0;
-        [LGEO addObject:@(value)];
+    self = [super init];
+    if (self) {
+        nx = 10;
+        ny = 10;
+        LGEO = [[NSMutableArray alloc] initWithCapacity:nx*ny];
+        for (int i = 0; i < nx*ny; i++) {
+            int value = 0;
+            [LGEO addObject:@(value)];
+        }
     }
+    
+    return self;
 }
 
 @end
