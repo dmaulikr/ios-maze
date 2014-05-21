@@ -25,6 +25,7 @@
 		1ED1729A192CC6690014DB5B /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ED17299192CC6690014DB5B /* background.png */; };
 		1ED1729D192CEA4C0014DB5B /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED1729C192CEA4C0014DB5B /* Model.m */; };
 		1ED172A0192CF3000014DB5B /* Ball.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED1729F192CF3000014DB5B /* Ball.m */; };
+		1ED172A2192CF80D0014DB5B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ED172A1192CF80D0014DB5B /* CoreMotion.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		1ED1729C192CEA4C0014DB5B /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Model.m; path = ../Model.m; sourceTree = "<group>"; };
 		1ED1729E192CF3000014DB5B /* Ball.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ball.h; sourceTree = "<group>"; };
 		1ED1729F192CF3000014DB5B /* Ball.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ball.m; sourceTree = "<group>"; };
+		1ED172A1192CF80D0014DB5B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1ED172A2192CF80D0014DB5B /* CoreMotion.framework in Frameworks */,
 				1ED17261192C75060014DB5B /* CoreGraphics.framework in Frameworks */,
 				1ED17263192C75060014DB5B /* UIKit.framework in Frameworks */,
 				1ED1725F192C75060014DB5B /* Foundation.framework in Frameworks */,
@@ -112,6 +115,7 @@
 		1ED1725D192C75060014DB5B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1ED172A1192CF80D0014DB5B /* CoreMotion.framework */,
 				1ED1725E192C75060014DB5B /* Foundation.framework */,
 				1ED17260192C75060014DB5B /* CoreGraphics.framework */,
 				1ED17262192C75060014DB5B /* UIKit.framework */,

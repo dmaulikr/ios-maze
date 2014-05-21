@@ -7,21 +7,28 @@
 //
 
 #import "ViewController.h"
+#import <CoreMotion/CoreMotion.h>
 #import "Model.h"
 #import "DrawMaze.h"
 #import "Ball.h"
 
 @interface ViewController ()
+@property (nonatomic, strong) CMMotionManager* motionManager;
+@property (strong, nonatomic) NSTimer* timer;
 @property (strong, nonatomic) Model* model;
 @property (strong, nonatomic) Ball* ball;
-@property (strong, nonatomic) IBOutlet DrawMaze *blackBox;
+@property (strong, nonatomic) IBOutlet UIView *blackBox;
+@property (strong, nonatomic) DrawMaze* maze;
 @end
 
 @implementation ViewController
 
+@synthesize motionManager;
+@synthesize timer;
 @synthesize model;
 @synthesize ball;
 @synthesize blackBox;
+@synthesize maze;
 
 - (void)viewDidLoad
 {
@@ -33,20 +40,80 @@
     
     float width = blackBox.frame.size.width;
     float height = blackBox.frame.size.height;
+    model.width = width;
+    model.height = height;
     float dx = width / model.nx;
     float dy = height / model.ny;
+    model.R = dx/2.0;
     
     // initialize Ball object
     CGRect ballRect = CGRectMake(100, 100, dx , dy);
     ball = [[Ball alloc] initWithFrame:ballRect];
     [ball setBackgroundColor:[UIColor clearColor]];
     
-    // view
-    blackBox.nx = model.nx;
-    blackBox.ny = model.ny;
-    blackBox.LGEO = model.LGEO;
+    // initialize maze object
+    CGRect mazeRect = CGRectMake(0, 0, model.width , model.height);
+    maze = [[DrawMaze alloc] initWithFrame:mazeRect];
+    maze.nx = model.nx;
+    maze.ny = model.ny;
+    maze.LGEO = model.LGEO;
 
-    [self.view addSubview:blackBox];
+    // initialize motion manager
+    motionManager = [[CMMotionManager alloc] init];
+    motionManager.accelerometerUpdateInterval = 1.0/60.0;
+    
+    if ([motionManager isAccelerometerAvailable]) {
+        
+        [self startGameLoop];
+        
+    } else {
+        
+        NSLog(@"No accelerometer! You may be running on the iOS simulator...");
+    }
+    
+    [blackBox addSubview:maze];
+    [blackBox addSubview:ball];
+}
+
+- (void) startGameLoop
+{
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    
+    [motionManager startAccelerometerUpdatesToQueue:queue withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            // acceleration components (X, Y and Z)
+            model.ax = accelerometerData.acceleration.x;
+            model.ay = accelerometerData.acceleration.y;
+        });
+    }];
+    
+    // begin animation
+    timer = [NSTimer timerWithTimeInterval:1.0/60.0
+                                    target:self
+                                  selector:@selector(update)
+                                  userInfo:nil
+                                   repeats:YES];
+    
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+}
+
+// update model parameters and plot the ball using the view
+- (void) update
+{
+    // update maze
+    [blackBox addSubview:maze];
+    [maze setNeedsDisplay];
+    
+    // update ball position
+    [model updateBallPosition];
+    
+    // draw the ball at the new location
+    float x = model.x;
+    float y = model.y;
+    float R = model.R;
+
+    ball.frame = CGRectMake(x-R, y-R, 2*R, 2*R);
     [blackBox addSubview:ball];
 }
 
@@ -74,9 +141,8 @@
         [model.LGEO removeObjectAtIndex:N];
         [model.LGEO insertObject:@(1-val) atIndex:N];
 
-        [blackBox.LGEO removeObjectAtIndex:N];
-        [blackBox.LGEO insertObject:@(1-val) atIndex:N];
-        [blackBox setNeedsDisplay];
+        [maze.LGEO removeObjectAtIndex:N];
+        [maze.LGEO insertObject:@(1-val) atIndex:N];
     }
 }
 

@@ -14,7 +14,14 @@
 @property int nx, ny;
 @property NSMutableArray* LGEO;
 
+// domain size
+@property float width, height;
+
 // ball
 @property float x, y, R, ux, uy, ax, ay;
+- (void) updateBallPosition;
+
+// coefficient of restitution
+@property float COR;
 
 @end
