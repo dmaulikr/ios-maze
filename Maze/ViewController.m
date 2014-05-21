@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import <CoreMotion/CoreMotion.h>
 #import "Model.h"
-#import "DrawMaze.h"
+#import "Maze.h"
 #import "Ball.h"
 
 @interface ViewController ()
@@ -18,7 +18,7 @@
 @property (strong, nonatomic) Model* model;
 @property (strong, nonatomic) Ball* ball;
 @property (strong, nonatomic) IBOutlet UIView *blackBox;
-@property (strong, nonatomic) DrawMaze* maze;
+@property (strong, nonatomic) Maze* maze;
 @end
 
 @implementation ViewController
@@ -53,7 +53,7 @@
     
     // initialize maze object
     CGRect mazeRect = CGRectMake(0, 0, model.width , model.height);
-    maze = [[DrawMaze alloc] initWithFrame:mazeRect];
+    maze = [[Maze alloc] initWithFrame:mazeRect];
     maze.nx = model.nx;
     maze.ny = model.ny;
     maze.LGEO = model.LGEO;

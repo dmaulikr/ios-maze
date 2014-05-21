@@ -1,5 +1,5 @@
 //
-//  DrawMaze.h
+//  Maze.h
 //  Maze
 //
 //  Created by Abhijit Joshi on 5/21/14.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DrawMaze : UIView
+@interface Maze : UIView
 @property int nx;
 @property int ny;
 @property NSMutableArray* LGEO;
