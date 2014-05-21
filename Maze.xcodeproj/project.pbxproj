@@ -21,6 +21,9 @@
 		1ED17280192C75060014DB5B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ED17262192C75060014DB5B /* UIKit.framework */; };
 		1ED17288192C75060014DB5B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1ED17286192C75060014DB5B /* InfoPlist.strings */; };
 		1ED1728A192C75060014DB5B /* MazeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED17289192C75060014DB5B /* MazeTests.m */; };
+		1ED17298192C7A2F0014DB5B /* DrawMaze.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED17297192C7A2F0014DB5B /* DrawMaze.m */; };
+		1ED1729A192CC6690014DB5B /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ED17299192CC6690014DB5B /* background.png */; };
+		1ED1729D192CEA4C0014DB5B /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED1729C192CEA4C0014DB5B /* Model.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,11 @@
 		1ED17285192C75060014DB5B /* MazeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MazeTests-Info.plist"; sourceTree = "<group>"; };
 		1ED17287192C75060014DB5B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1ED17289192C75060014DB5B /* MazeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MazeTests.m; sourceTree = "<group>"; };
+		1ED17296192C7A2F0014DB5B /* DrawMaze.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawMaze.h; sourceTree = "<group>"; };
+		1ED17297192C7A2F0014DB5B /* DrawMaze.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawMaze.m; sourceTree = "<group>"; };
+		1ED17299192CC6690014DB5B /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		1ED1729B192CEA4C0014DB5B /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Model.h; path = ../Model.h; sourceTree = "<group>"; };
+		1ED1729C192CEA4C0014DB5B /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Model.m; path = ../Model.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +123,11 @@
 				1ED1726D192C75060014DB5B /* AppDelegate.h */,
 				1ED1726E192C75060014DB5B /* AppDelegate.m */,
 				1ED17270192C75060014DB5B /* Main.storyboard */,
+				1ED1729B192CEA4C0014DB5B /* Model.h */,
+				1ED1729C192CEA4C0014DB5B /* Model.m */,
+				1ED17296192C7A2F0014DB5B /* DrawMaze.h */,
+				1ED17297192C7A2F0014DB5B /* DrawMaze.m */,
+				1ED17299192CC6690014DB5B /* background.png */,
 				1ED17273192C75060014DB5B /* ViewController.h */,
 				1ED17274192C75060014DB5B /* ViewController.m */,
 				1ED17276192C75060014DB5B /* Images.xcassets */,
@@ -229,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1ED17277192C75060014DB5B /* Images.xcassets in Resources */,
+				1ED1729A192CC6690014DB5B /* background.png in Resources */,
 				1ED17269192C75060014DB5B /* InfoPlist.strings in Resources */,
 				1ED17272192C75060014DB5B /* Main.storyboard in Resources */,
 			);
@@ -252,6 +266,8 @@
 				1ED17275192C75060014DB5B /* ViewController.m in Sources */,
 				1ED1726F192C75060014DB5B /* AppDelegate.m in Sources */,
 				1ED1726B192C75060014DB5B /* main.m in Sources */,
+				1ED17298192C7A2F0014DB5B /* DrawMaze.m in Sources */,
+				1ED1729D192CEA4C0014DB5B /* Model.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
