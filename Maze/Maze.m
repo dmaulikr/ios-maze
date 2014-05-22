@@ -38,6 +38,8 @@
     float dx = width/nx;
     float dy = height/ny;
     
+    UIColor *mazeColor = [UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1.0];
+    
     for (int i = 0; i < nx; i++) {
         for (int j = 0; j < ny; j++) {
             int N = i + j*nx;
@@ -53,9 +55,9 @@
                 [[UIColor blackColor] setFill];
             }
             else {
-                [[UIColor whiteColor] setFill];
+                [mazeColor setFill];
             }
-            [[UIColor yellowColor] setStroke];
+            [[UIColor colorWithRed:0.4 green:0.4 blue:0.4 alpha:1.0] setStroke];
             CGContextDrawPath(context, kCGPathFillStroke);
         }
     }

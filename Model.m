@@ -58,6 +58,37 @@
         uy = -fabsf(uy)*COR;
     }
     
+    // check for collision with maze blocks
+    float dx = width / nx;
+    float dy = height / ny;
+    
+    // find out array location where the ball center is located
+    int xIndex = x/dx;
+    int yIndex = y/dy;
+    
+    // center point of the square
+    float xCenter = dx/2 + xIndex*dx;
+    float yCenter = dy/2 + yIndex*dy;
+    
+    // ball coordinates relative to the square center
+    float xRel = x - xCenter;
+    float yRel = y - yCenter;
+
+    int N = (xIndex) + nx*(yIndex);
+    
+    int val = [[LGEO objectAtIndex:N] intValue];
+    
+    if (val == 1) {
+        // inside a solid block
+        if (fabsf(xRel) > fabsf(yRel)) {
+            ux = -ux;
+            x += ux;
+        } else {
+            uy = -uy;
+            y += -uy;
+        }
+    }
+    
     // dynamics
     ux += 0.2*ax;
     uy += 0.2*ay;

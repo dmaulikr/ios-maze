@@ -44,7 +44,7 @@
     model.height = height;
     float dx = width / model.nx;
     float dy = height / model.ny;
-    model.R = dx/2.0;
+    model.R = dx/3.0;
     
     // initialize Ball object
     CGRect ballRect = CGRectMake(100, 100, dx , dy);
