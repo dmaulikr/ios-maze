@@ -19,6 +19,7 @@
 @property (strong, nonatomic) Ball* ball;
 @property (strong, nonatomic) IBOutlet UIView *blackBox;
 @property (strong, nonatomic) Maze* maze;
+- (IBAction)clearAllBlocks:(id)sender;
 @end
 
 @implementation ViewController
@@ -60,7 +61,7 @@
 
     // initialize motion manager
     motionManager = [[CMMotionManager alloc] init];
-    motionManager.accelerometerUpdateInterval = 1.0/60.0;
+    motionManager.accelerometerUpdateInterval = 1.0/120.0;
     
     if ([motionManager isAccelerometerAvailable]) {
         
@@ -89,7 +90,7 @@
     }];
     
     // begin animation
-    timer = [NSTimer timerWithTimeInterval:1.0/60.0
+    timer = [NSTimer timerWithTimeInterval:1.0/120.0
                                     target:self
                                   selector:@selector(update)
                                   userInfo:nil
@@ -150,6 +151,13 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)clearAllBlocks:(id)sender {
+    for (int i = 0; i < model.nx*model.ny; i++) {
+        [model.LGEO removeObjectAtIndex:i];
+        [model.LGEO insertObject:@(0) atIndex:i];
+    }
 }
 
 @end
