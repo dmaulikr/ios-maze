@@ -116,65 +116,41 @@
     [xIndexNbr insertObject:@(xIndex  ) atIndex:7];
     [xIndexNbr insertObject:@(xIndex+1) atIndex:8];
     
-    for (int i = 0; i < nx*ny; i++) {
-        [LGEO removeObjectAtIndex:i];
-        [LGEO insertObject:@(0) atIndex:i];
-    }
-    
+    // check for possible collision with all applicable neighbors
     for (int index = 0; index < 9; index++) {
         int Nval = [[Nindex objectAtIndex:index] intValue];
         int xNbr = [[xIndexNbr objectAtIndex:index] intValue];
         float xCen = [[xCenter objectAtIndex:index] floatValue];
         float yCen = [[yCenter objectAtIndex:index] floatValue];
-//        int val = [[LGEO objectAtIndex:Nval] intValue];
+
         if (xNbr >= 0 && xNbr < nx
-              && index !=4
-//            && fabsf(x-xCen) < (dx/2 + R)
-//            && fabsf(y-yCen) < (dy/2 + R)
-//            && val == 1
+              && index != 4
+            && fabsf(x-xCen) < (dx/2 + R)
+            && fabsf(y-yCen) < (dy/2 + R)
             && Nval >= 0 && Nval < nx*ny) {
-/*
+
             // ball coordinates relative to the square center
             float xRel = x - xCen;
             float yRel = y - yCen;
 
-            // inside a solid block
+            int val = [[LGEO objectAtIndex:Nval] intValue];
+            
+            if (val == 1) {
+                
+            // hit a solid block
             if (fabsf(xRel) > fabsf(yRel)) {
-                ux = -ux;
+                ux = -COR*ux;
                 x += ux;
             } else {
-                uy = -uy;
+                uy = -COR*uy;
                 y += -uy;
             }
-*/
-            [LGEO removeObjectAtIndex:Nval];
-            [LGEO insertObject:@(1) atIndex:Nval];
-        }
-    }
-/*
-    // center point of the square
-    float xCenter = dx/2 + xIndex*dx;
-    float yCenter = dy/2 + yIndex*dy;
-    
-    // ball coordinates relative to the square center
-    float xRel = x - xCenter;
-    float yRel = y - yCenter;
+                
+            }
 
-    int N = (xIndex) + nx*(yIndex);
-    
-    int val = [[LGEO objectAtIndex:N] intValue];
-    
-    if (val == 1 && fabsf(xRel) < dx/2 + R && fabsf(yRel) < dy/2 + R) {
-        // inside a solid block
-        if (fabsf(xRel) > fabsf(yRel)) {
-            ux = -ux;
-            x += ux;
-        } else {
-            uy = -uy;
-            y += -uy;
         }
     }
-*/
+
     // dynamics
     ux += 0.2*ax;
     uy += 0.2*ay;
