@@ -1,0 +1,8 @@
+ios-maze
+========
+
+Guide a ball through a maze you can create and modify on the fly
+
+You control the motion of the ball via the accelerometer and create and destroy the maze by touching points on the screen with your finger. The initial configuration has no maze blocks. Each time you tap the screen, a solid maze block is created at that point. If you tap the same point again, the block is removed. 
+
+The ball bounces off the domain walls and the maze blocks using a simple-to-use collision detection algorithm.
