@@ -21,8 +21,8 @@
 {
     self = [super init];
     if (self) {
-        nx = 10;
-        ny = 10;
+        nx = 12;
+        ny = 12;
         LGEO = [[NSMutableArray alloc] initWithCapacity:nx*ny];
         for (int i = 0; i < nx*ny; i++) {
             int value = 0;

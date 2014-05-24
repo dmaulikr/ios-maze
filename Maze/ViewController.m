@@ -136,14 +136,18 @@
         int xIndex = x/dx;
         int yIndex = y/dy;
         int N = xIndex + model.nx*yIndex;
-        int val = [[model.LGEO objectAtIndex:N] intValue];
         
-        // update entry at that location in the model
-        [model.LGEO removeObjectAtIndex:N];
-        [model.LGEO insertObject:@(1-val) atIndex:N];
+        // if touch is within array bounds, toggle LGEO value
+        if (xIndex >=0 && xIndex < model.nx && yIndex >=0 && yIndex < model.ny) {
+            int val = [[model.LGEO objectAtIndex:N] intValue];
+            
+            // update entry at that location in the model
+            [model.LGEO removeObjectAtIndex:N];
+            [model.LGEO insertObject:@(1-val) atIndex:N];
 
-        [maze.LGEO removeObjectAtIndex:N];
-        [maze.LGEO insertObject:@(1-val) atIndex:N];
+            [maze.LGEO removeObjectAtIndex:N];
+            [maze.LGEO insertObject:@(1-val) atIndex:N];
+        }
     }
 }
 
