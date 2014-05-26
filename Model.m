@@ -14,6 +14,7 @@
 @synthesize LGEO;
 @synthesize width, height;
 @synthesize x,y,R,ux,uy,ax,ay;
+@synthesize lastx, lasty;
 @synthesize COR;
 
 // override superclass implementation of init
@@ -36,6 +37,10 @@
 
 - (void) updateBallPosition
 {
+    // store current position of the ball before we update it
+    lastx = x;
+    lasty = y;
+    
     // kinematics
     x += 0.5*ux;
     y += -0.5*uy;
@@ -140,10 +145,10 @@
             // hit a solid block
             if (fabsf(xRel) > fabsf(yRel)) {
                 ux = -COR*ux;
-                x += ux;
+                x = lastx;
             } else {
                 uy = -COR*uy;
-                y += -uy;
+                y = lasty;
             }
                 
             }

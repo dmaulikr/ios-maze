@@ -19,6 +19,7 @@
 
 // ball
 @property float x, y, R, ux, uy, ax, ay;
+@property float lastx, lasty;
 - (void) updateBallPosition;
 
 // coefficient of restitution

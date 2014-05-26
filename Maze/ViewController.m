@@ -46,6 +46,10 @@
     float dx = width / model.nx;
     float dy = height / model.ny;
     model.R = dx/3.0;
+    model.x = width/2.0;
+    model.y = height/2.0;
+    model.ux = 0.0;
+    model.uy = 0.0;
     
     // initialize Ball object
     CGRect ballRect = CGRectMake(100, 100, dx , dy);
