@@ -221,6 +221,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Misha software solutions";
 				TargetAttributes = {
+					1ED1725A192C75060014DB5B = {
+						DevelopmentTeam = QUA62RNLTJ;
+					};
 					1ED1727B192C75060014DB5B = {
 						TestTargetID = 1ED1725A192C75060014DB5B;
 					};
@@ -402,10 +405,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Maze/Maze-Prefix.pch";
 				INFOPLIST_FILE = "Maze/Maze-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "DC907360-9160-41CB-AF79-A0715509D2D4";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -415,10 +420,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Maze/Maze-Prefix.pch";
 				INFOPLIST_FILE = "Maze/Maze-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "DC907360-9160-41CB-AF79-A0715509D2D4";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -482,6 +489,7 @@
 				1ED1728F192C75060014DB5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1ED17290192C75060014DB5B /* Build configuration list for PBXNativeTarget "MazeTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +498,7 @@
 				1ED17292192C75060014DB5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
